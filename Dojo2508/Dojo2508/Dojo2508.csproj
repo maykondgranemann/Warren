@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AD660B29-D93F-41B2-9705-58E777E4423E}</ProjectGuid>
+    <ProjectGuid>{546D87C6-891B-4FCC-A3FC-3CF532E806EB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Console</RootNamespace>
-    <AssemblyName>Console</AssemblyName>
+    <RootNamespace>Dojo2508</RootNamespace>
+    <AssemblyName>Dojo2508</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,32 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="0-TipoValor\Enumeradores.cs" />
-    <Compile Include="0-TipoValor\Enumeradores2.cs" />
-    <Compile Include="0-TipoValor\Estruturas.cs" />
-    <Compile Include="0-TipoValor\TipoBooleano.cs" />
-    <Compile Include="0-TipoValor\TipoNumerico.cs" />
-    <Compile Include="0-TipoValor\TipoNumerico2.cs" />
-    <Compile Include="0-TipoValor\TipoNumerico3.cs" />
-    <Compile Include="1-TipoReferencia\BaseModel.cs" />
-    <Compile Include="1-TipoReferencia\BaseRepository.cs" />
-    <Compile Include="1-TipoReferencia\IRepository.cs" />
-    <Compile Include="1-TipoReferencia\PessoaJuridica.cs" />
-    <Compile Include="1-TipoReferencia\PessoaFisicaRepository.cs" />
-    <Compile Include="1-TipoReferencia\PessoaJuridicaRepository.cs" />
-    <Compile Include="1-TipoReferencia\Pessoa.cs" />
-    <Compile Include="1-TipoReferencia\PessoaFisica.cs" />
-    <Compile Include="1-TipoReferencia\Produto.cs" />
-    <Compile Include="1-TipoReferencia\ProdutoRepository.cs" />
-    <Compile Include="1-TipoReferencia\TestaPessoas.cs" />
-    <Compile Include="99-Exercicios\000Cadastro.cs" />
-    <Compile Include="BemVindo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Repository\" />
+    <Folder Include="View\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
