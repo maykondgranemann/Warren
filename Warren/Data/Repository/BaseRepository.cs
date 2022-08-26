@@ -1,4 +1,5 @@
-﻿using Data.Model;
+﻿using Data.Context;
+using Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,54 @@ namespace Data.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseModel
     {
-        public string Create(T model)
+
+        public virtual List<T> GetAll()
         {
+            List<T> list = new List<T>();
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                list = warrenContext.Set<T>().ToList();
+            }
+            return list;
+        }
+        public virtual string Create(T model)
+        {
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                warrenContext.Set<T>().Add(model);
+                warrenContext.SaveChanges();
+            }
             return "Criado";
         }
-        public string Delete(int id)
+
+        public virtual string Delete(int id)
         {
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                warrenContext.Entry<T>(model).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                warrenContext.SaveChanges();
+            }
             return "Deletado";
         }
 
-        public List<T> GetAll()
-        {
-            List<T> list = new List<T>();
-            return list;
-        }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
-            T model = null; 
+            T model = null;
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                model = warrenContext.Set<T>().Find(id);
+            }
             return model;
         }
 
-        public string Update(T model)
+        public virtual string Update(T model)
         {
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                warrenContext.Entry<T>(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                warrenContext.SaveChanges();
+            }
             return "Alterado";
         }
     }

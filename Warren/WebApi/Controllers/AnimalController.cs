@@ -9,16 +9,21 @@ namespace WebApi.Controllers
     [ApiController]
     public class AnimalController : ControllerBase
     {
-        [HttpGet]
-        public Animal Get()
+        private AnimalRepository repo;
+
+        public AnimalController()
         {
-            Animal a1 = new Animal { Id = 1, Especie = "Catchoro", Nome = "Chimba", Peso = 3.8f };
-            return a1;
+            this.repo = new AnimalRepository();
+        }
+
+        [HttpGet]
+        public List<Animal> Get()
+        {     
+            return repo.GetAll();
         }
         [HttpPost]
         public string Post(Animal model)
         {
-            AnimalRepository repo = new AnimalRepository();
             return repo.Create(model);
         }
     }
