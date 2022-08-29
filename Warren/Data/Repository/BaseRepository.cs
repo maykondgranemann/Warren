@@ -34,7 +34,7 @@ namespace Data.Repository
         {
             using (WarrenContext warrenContext = new WarrenContext())
             {
-                warrenContext.Entry<T>(model).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                warrenContext.Entry<T>(this.GetById(id)).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                 warrenContext.SaveChanges();
             }
             return "Deletado";

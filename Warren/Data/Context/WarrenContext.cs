@@ -21,4 +21,4 @@ namespace Data.Context
             optionsBuilder.UseNpgsql("Host=localhost; Port=5435; Database=postgres; UserId=postgres; Password=123456");
         }
     }
-}
+ }
