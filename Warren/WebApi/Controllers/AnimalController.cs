@@ -5,26 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AnimalController : ControllerBase
+    public class AnimalController : GenericController<Animal, AnimalRepository>
     {
-        private AnimalRepository repo;
-
-        public AnimalController()
+        public AnimalController() : base(new AnimalRepository())
         {
-            this.repo = new AnimalRepository();
-        }
-
-        [HttpGet]
-        public List<Animal> Get()
-        {     
-            return repo.GetAll();
-        }
-        [HttpPost]
-        public string Post(Animal model)
-        {
-            return repo.Create(model);
+           
         }
     }
 }
