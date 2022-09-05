@@ -8,9 +8,5 @@ namespace WebApi.Controllers
 
     public class PlantaController : GenericController<Planta, PlantaRepository>
     {
-        public PlantaController() : base(new PlantaRepository())
-        {
-
-        }
     }
 }

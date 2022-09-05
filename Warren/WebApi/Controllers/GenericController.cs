@@ -11,9 +11,9 @@ namespace WebApi.Controllers
     {
         private R repo;
 
-        public GenericController(R repo)
+        public GenericController()
         {
-            this.repo = repo;
+            this.repo = Activator.CreateInstance<R>();
         }
 
         [HttpGet]
